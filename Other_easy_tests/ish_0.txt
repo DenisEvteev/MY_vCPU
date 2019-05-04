@@ -1,0 +1,15 @@
+%main; // 5*8 - 4*2 + 8
+push 5;
+push 8;
+mul;    // 5 * 8
+pop ax; // ax = 40
+push 4;
+push 2;
+mul; // 4*2
+pop bx; // bx = 8
+push ax;
+push bx;
+sub;  // ax + bx = 40 - 8 = 32
+push 8;
+add;  // 32 + 8 = 40
+out ax;// the answer  = 40

@@ -1,0 +1,26 @@
+%main; // 3*8 + 9:3 - 4*2 + 19
+push 3; 
+push 8;
+mul;// 3*8
+pop ax; // ax = 24
+push 9;
+push 3;
+div;
+pop bx; // bx = 9:3 = 3
+push 4;
+push 2;
+mul;
+pop cx; // cx = 4*2 = 8
+push ax;
+push bx;
+add; // ax + bx  = 27
+pop ax; // ax = 27
+push ax; 
+push cx;
+sub; // ax - cx = 19
+pop dx; // dx = 19
+push dx; 
+push 19;
+add; 
+out ax; //the answer = 38
+

@@ -1,0 +1,11 @@
+%main;
+in ax;
+push ax;
+push 7;
+mul;
+pop[ ax + 6];
+pop[ ax +1];
+push[esp -9];
+pop[8];
+push[dx - 16];
+push[ebp - 4];
