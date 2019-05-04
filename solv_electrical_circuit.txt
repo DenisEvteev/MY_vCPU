@@ -1,0 +1,369 @@
+//This program gives two numbers on output
+//the first is fraction numerator
+//the second is fraction denominator
+//if you put them in fraction
+//-------------announcement of the functions-----------------
+func_a mul_1_2_4_4;
+func_a mul_2_3_4_4;
+func_a mul_1_2_3_4;
+func_a mul_2_3_3_4;
+func_a mul_1_2_3_5;
+func_a mul_2_3_3_5;
+func_a mul_1_2_4_5;
+func_a mul_1_2_2_3;
+func_a mul_2_2_3_3;
+func_a mul_1_2_2_4;
+func_a mul_2_2_3_4;
+func_a mul_2_3_4_5;
+func_a mul_2_4_4_5;
+func_a mul_2_2_3_5;
+func_a mul_2_2_4_5;
+
+func_a calculate_the_denominator;
+///----------------------------------
+
+
+func calculate_the_numerator;
+push bx;
+push[6];
+mul;
+push bx;
+push[4];
+mul;
+push[esp + 2];
+add;
+push cx;
+push[5];
+mul;
+push[esp + 2];
+add;
+push cx;
+push[3];
+mul;
+push[esp + 2];
+add;
+push cx;
+push[7];
+mul;
+push[esp + 2];
+add;
+push dx;
+push[7];
+mul;
+push[esp + 2];
+add;
+push cx;
+push[9];
+mul;
+push[esp + 2];
+add;
+push dx;
+push[9];
+mul;
+push[esp + 2];
+add;
+push[0];
+push[11];
+mul;
+push[esp + 2];
+add;
+push 2;
+push dx;
+mul;
+push[10];
+mul;
+push[esp + 3];
+add;
+push dx;
+push[12];
+mul;
+push[esp + 2];
+add;
+push bx;
+push[8];
+mul;
+push[esp + 2];
+add;
+push bx;
+push[14];
+mul;
+push[esp + 2];
+add;
+push ax;
+push[13];
+mul;
+push[esp + 2];
+add;
+push bx;
+push[15];
+mul;
+push[esp + 2];
+add;
+pop[2];
+ret eax;
+
+//################
+func mul_1_2_3_4;
+push[0];
+push bx;
+mul;
+push cx;
+mul;
+push dx;
+mul;
+pop[5];
+ret eax;
+//################
+
+func mul_1_2_4_5;
+push ax;
+push bx;
+mul;
+push dx;
+mul;
+push[0];
+mul;
+pop[9];
+ret eax;
+//#################
+
+func mul_2_3_3_5;
+push cx;
+push cx;
+mul;
+push bx;
+mul;
+push ax;
+mul;
+pop[8];
+ret eax;
+//##################
+
+func mul_1_2_2_3;
+push bx;
+push bx;
+mul;
+push cx;
+mul;
+push[0];
+mul;
+pop[10];
+ret eax;
+
+//####################
+func mul_1_2_3_5;
+push ax;
+push bx;
+mul;
+push cx;
+mul;
+push[0];
+mul;
+pop[7];
+ret eax;
+//#####################
+
+func mul_1_2_4_4;
+push dx;
+push bx;
+mul;
+push dx;
+mul;
+push[0];
+mul;
+pop[3];
+ret eax;
+//#########################
+
+func mul_2_3_4_4;
+push dx;
+push bx;
+mul;
+push dx;
+mul;
+push cx;
+mul;
+pop[4];
+ret eax;
+//#######################
+
+func mul_2_3_3_4;
+push dx;
+push bx;
+mul;
+push cx;
+mul;
+push cx;
+mul;
+pop[6];
+ret eax;
+//######################
+
+func mul_2_2_3_3;
+push bx;
+push bx;
+mul;
+push cx;
+mul;
+push cx;
+mul;
+pop[11];
+ret eax;
+//#####################
+
+func mul_1_2_2_4;
+push bx;
+push bx;
+mul;
+push dx;
+mul;
+push[0];
+mul;
+pop[12];
+ret eax;
+//#####################
+
+func mul_2_2_3_4;
+push bx;
+push bx;
+mul;
+push dx;
+mul;
+push cx;
+mul;
+pop[13];
+ret eax;
+//####################
+
+func mul_2_3_4_5;
+push bx;
+push cx;
+mul;
+push dx;
+mul;
+push ax;
+mul;
+pop[14];
+ret eax;
+//#################
+
+func mul_2_4_4_5;
+push bx;
+push dx;
+mul;
+push dx;
+mul;
+push ax;
+mul;
+pop[15];
+ret eax;
+//##################
+
+func mul_2_2_3_5;
+push bx;
+push bx;
+mul;
+push cx;
+mul;
+push ax;
+mul;
+pop[16];
+ret eax;
+//####################
+
+func mul_2_2_4_5;
+push bx;
+push bx;
+mul;
+push dx;
+mul;
+push ax;
+mul;
+pop[17];
+ret eax;
+//#####################
+//@@@@@@@@@@@@@@@@@@@@@
+//$$$$$$$$$$$$$$$$$$$$$
+
+
+
+
+func calculate_the_denominator;
+push[3];
+push[4];
+add;
+push[5];
+add;
+push[6];
+add;
+push[7];
+add;
+push[8];
+add;
+push[9];
+add;
+push[10];
+add;
+push[11];
+add;
+push[12];
+add;
+push[13];
+add;
+push 2;
+push[14];
+mul;
+push[esp + 2];
+add;
+push[15];
+add;
+push[16];
+add;
+push[17];
+add;
+pop[1];
+ret eax;
+
+
+
+
+%main;
+//-------------Enter Values------------//
+in ax;      //R5
+in bx;     //R2
+in cx;    //R3
+in dx;   //R4
+push ax;
+pop[0];  // R1
+in ax;
+//-----------------------------------------------------------
+//###################----CALL_FUNCTIONS-------################
+call mul_1_2_4_4;
+call mul_2_3_4_4;
+call mul_1_2_3_4;
+call mul_2_3_3_4;
+call mul_1_2_3_5;
+call mul_2_3_3_5;
+call mul_1_2_4_5;
+call mul_1_2_2_3;
+call mul_2_2_3_3;
+call mul_1_2_2_4;
+call mul_2_2_3_4;
+call mul_2_3_4_5;
+call mul_2_4_4_5;
+call mul_2_2_3_5;
+call mul_2_2_4_5;
+//---------------------------------------------------------
+call calculate_the_numerator;
+//---------------------------------------------------------
+call calculate_the_denominator;
+//---------------------------------------------------------
+//############----SHOW THE ANSWERS------##################
+//----------------------------------------------------------the numerator
+push[2];
+out ax;
+//----------------------------------------------------------the denominator
+push[1];
+out bx;
+
+//Oh, YeS!;) I hAvE d0nE iT:0)0))0)

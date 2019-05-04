@@ -1,0 +1,15 @@
+%main // this program count factorial of value > 1
+in ax; //factorial of 3
+push ax; // ax 3
+pop bx; // bx 3
+dec bx; //  bx 2
+:begin;
+push ax; // put 3, put 6
+push bx; // put 2, put 1
+mul; //the last 6, the last 6
+pop ax; //  ax 6, ax 6
+dec bx; // bx 1, bx 0
+push bx; // put 1, put 0
+jnz :begin;   // если не ноль то прыгаем
+push ax;
+out ax; // the result

@@ -1,0 +1,41 @@
+func factorial
+push ax;
+pop bx;
+dec bx;
+push bx;
+push 1;
+je :end;
+push ax;
+dec ax;
+call factorial;
+:end;
+push ax;
+mul;
+pop ax;
+ret eax;
+
+
+%main
+in ax;
+push ax;
+push 0;
+je :case1;
+push ax;
+push 1;
+je :case1;
+push 12;
+push ax;
+jl :case2;
+call factorial;
+push ax;
+out dx;
+end;
+
+:case1
+push 1;
+out cx;
+end;
+
+:case2
+push 0;
+out bx;

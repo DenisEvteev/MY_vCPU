@@ -1,0 +1,87 @@
+func_a Two_Roots;
+func Dickr;  // function for count discriminant
+push bx;
+push bx;
+mul; // bx*bx = b^2
+pop dx; // dx = b^2
+push 4;
+push ax;
+mul; // 4*a
+push cx;
+mul; // 4*a*c
+pop cx; // cx = 4*a*c
+push dx;
+push cx;
+sub; // b^2 - 4*a*c
+ret eax;   // in eax put discriminant
+
+
+func Two_Roots;
+push eax;
+sqrt; // sqrt(D)
+pop cx; // cx = sqrt(D)
+push 0;
+push bx;
+sub; // -bx = -b;
+pop dx; // dx = -b
+push dx;
+push cx;
+add; // -b + sqrt(D)
+push 2;
+div; // (-b + sqrt(D))/2
+push ax;
+div;// (-b + sqrt(D))/(2*a)
+pop bx; // the x1     в bx лежит 1 корень
+push dx;
+push cx;
+sub;// -b - sqrt(D)
+push 2;
+div; // (-b - sqrt(D))/2
+push ax;
+div; // (-b - sqrt(D))/(2*a)
+ret eax; // the x2 in eax лежит 2 корень
+
+
+
+%main; // Program for solving quadratic equation
+in ax;
+in bx;
+in cx;
+push ax;
+push 0;
+je :case1;
+call Dickr;
+push eax;
+push 0;
+jl :case3; // jl - прыгаем если то, что положили раньше меньше того что лежит сверху
+je :case2;
+call Two_Roots;   // проблема с функцией!!!!!!!! адрес возврата потерян почему-то!!!!! обидно((((
+out eax;
+push bx;
+out ax;
+end;
+
+
+:case3;
+push 999;
+out ax;
+end;
+
+:case2;  //case2 - if D = 0
+push 0;
+push bx;
+sub;
+push 2;
+div;
+push ax;
+div;
+out cx;
+end;
+
+:case1; // case1 - if a = 0 - usual
+push 0;
+push cx;
+sub;
+push bx;
+div;
+out dx;
